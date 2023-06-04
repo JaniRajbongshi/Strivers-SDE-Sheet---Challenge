@@ -1,0 +1,24 @@
+#include <bits/stdc++.h> 
+#define ll long long int
+long long maxSubarraySum(int arr[], int n)
+{
+    /*
+        Don't write main().
+        Don't read input, it is passed as function argument.    
+        No need to print anything.
+        Taking input and printing output is handled automatically.
+    */
+    ll minsum = 0;
+    ll prefixsum = 0;
+    ll ans = -1e18;
+
+    for (int i =0;i<n;i++){
+
+        prefixsum += arr[i];
+        ans = max(ans,prefixsum-minsum);
+        minsum  = min(minsum,prefixsum);        
+
+    }
+    if (ans<0)  ans=0;
+    return ans;
+}
