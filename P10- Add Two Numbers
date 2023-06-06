@@ -1,0 +1,88 @@
+Node *addTwoNumbers(Node *num1, Node *num2)
+{
+    // Write your code here.
+    Node* dummy=new Node(0);
+    Node *l1= num1;
+    Node *l2= num2;
+    Node* temp=dummy;
+    int carry=0;
+    int sum=0;
+
+while(l1!=NULL && l2!=NULL){
+
+Node* temp1=new Node(0);
+
+sum=(l1->data) +(l2->data)+carry;
+
+temp1->data=(sum%10);
+
+temp->next=temp1;
+
+temp=temp->next;
+
+carry=sum/10;
+
+l1=l1->next;
+
+l2=l2->next;
+
+}
+
+if(l1!=NULL && l2==NULL){
+
+while(l1!=NULL){
+
+Node* temp1=new Node(0);
+
+sum=(l1->data) + carry;
+
+temp1->data=(sum%10);
+
+temp->next=temp1;
+
+temp=temp->next;
+
+carry=sum/10;
+
+l1=l1->next;
+
+}
+
+}
+
+else if(l1==NULL && l2!=NULL){
+
+while(l2!=NULL){
+
+Node* temp1=new Node(0);
+
+sum=(l2->data)+carry;
+
+temp1->data=(sum%10);
+
+temp->next=temp1;
+
+temp=temp->next;
+
+carry=sum/10;
+
+l2=l2->next;
+
+}
+
+}
+
+if(carry==1){
+
+Node* temp1=new Node(0);
+
+temp1->data=carry;
+
+temp->next=temp1;
+
+return dummy->next;
+
+}
+
+return dummy->next;
+}
