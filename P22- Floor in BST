@@ -1,0 +1,9 @@
+int floorInBST(TreeNode<int> * root, int X)
+{
+    // Write your code here.
+    if(root == NULL) return -1; // Base Case
+    int left = floorInBST(root->left, X);
+    if(root->val > X) return left;
+    int right = floorInBST(root->right, X);
+    return max(root->val, right);
+}
